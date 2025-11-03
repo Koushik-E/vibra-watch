@@ -11,9 +11,9 @@ const Index = () => {
   const getRiskLevel = (pred: string | null): "safe" | "warning" | "critical" => {
     if (!pred) return "safe";
     const lower = pred.toLowerCase();
-    if (lower.includes("critical") || lower.includes("danger")) return "critical";
-    if (lower.includes("warning") || lower.includes("caution")) return "warning";
-    return "safe";
+    if (lower.includes("high")) return "critical";
+    if (lower.includes("low")) return "warning";
+    return "safe"; // "no vibration"
   };
 
   const riskLevel = getRiskLevel(currentData.pred_label);
