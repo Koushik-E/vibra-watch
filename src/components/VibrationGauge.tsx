@@ -78,19 +78,12 @@ export const VibrationGauge = ({
         </div>
       </div>
 
-      <div className="mt-6 space-y-2">
-        <div className="flex items-center justify-center gap-2">
-          <div className={cn("w-3 h-3 rounded-full animate-pulse", `bg-${riskLevel}`)} 
-               style={{ backgroundColor: gaugeColor }} />
-          <span className={cn("text-sm font-medium uppercase", `status-${riskLevel}`)}>
-            {riskLevel}
-          </span>
-        </div>
-        <div className="text-center">
-          <span className={cn("text-sm font-semibold uppercase", animatedValue < 500 ? "text-[hsl(45,93%,47%)]" : "text-[hsl(0,72%,51%)]")}>
-            {animatedValue < 500 ? "Moderate" : "High"}
-          </span>
-        </div>
+      <div className="mt-6 flex items-center gap-2">
+        <div className={cn("w-3 h-3 rounded-full animate-pulse", `bg-${riskLevel}`)} 
+             style={{ backgroundColor: gaugeColor }} />
+        <span className={cn("text-sm font-medium uppercase", `status-${riskLevel}`)}>
+          {riskLevel}
+        </span>
       </div>
     </GlassCard>
   );
