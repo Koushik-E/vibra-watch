@@ -4,6 +4,7 @@ import { VibrationGauge } from "@/components/VibrationGauge";
 import { VibrationChart } from "@/components/VibrationChart";
 import { RiskIndicator } from "@/components/RiskIndicator";
 import { useVibrationData } from "@/hooks/useVibrationData";
+import vibrasenseLogo from "@/assets/vibrasense-logo.png";
 
 const Index = () => {
   const { currentData, historicalData, isConnected } = useVibrationData();
@@ -21,7 +22,13 @@ const Index = () => {
   return (
     <div className="min-h-screen p-4 sm:p-6 lg:p-8">
       {/* Header */}
-      <header className="mb-8 animate-fade-in">
+      <header className="mb-8 animate-fade-in relative">
+        <img 
+          src={vibrasenseLogo} 
+          alt="Vibrasense Logo" 
+          className="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+          style={{ filter: 'brightness(1.2) saturate(0.8)' }}
+        />
         <div className="flex items-center gap-3 mb-2">
           <Activity className="w-10 h-10 text-primary" />
           <h1 className="text-4xl sm:text-5xl font-bold text-gradient">
