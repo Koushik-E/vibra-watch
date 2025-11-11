@@ -15,7 +15,15 @@ export const RiskIndicator = ({ prediction, confidence }: RiskIndicatorProps) =>
     return "safe"; // "no vibration"
   };
 
+  const formatPrediction = (pred: string): string => {
+    const lower = pred.toLowerCase();
+    if (lower.includes("high")) return "High Vibration";
+    if (lower.includes("low")) return "Medium Vibration";
+    return pred;
+  };
+
   const riskLevel = getRiskLevel(prediction);
+  const displayText = formatPrediction(prediction);
 
   const icons = {
     safe: CheckCircle,
@@ -50,7 +58,7 @@ export const RiskIndicator = ({ prediction, confidence }: RiskIndicatorProps) =>
           <Icon className={cn("w-12 h-12", `status-${riskLevel}`)} />
           <div>
             <p className={cn("text-2xl font-bold uppercase", `status-${riskLevel}`)}>
-              {prediction}
+              {displayText}
             </p>
             <p className="text-sm text-muted-foreground">Risk Status</p>
           </div>
